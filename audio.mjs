@@ -1,0 +1,11 @@
+const sounds={tap:'click_001',message:'open_001',select:'select_001',success:'confirmation_001',finish:'confirmation_002',error:'error_001'};
+export class AudioDirector{
+ constructor(settings,onStatus=()=>{}){this.settings=settings;this.onStatus=onStatus;this.unlocked=false;this.voiceMap={};this.voiceAudio=null;this.track=new Audio('./assets/audio/sunset-plains.ogg');this.track.loop=true;this.track.preload='none';this.track.addEventListener('playing',()=>this.onStatus('Музыка ойнап тұр'));this.track.addEventListener('error',()=>this.onStatus('Музыка жүктелмеді'));this.loadVoices();document.addEventListener('visibilitychange',()=>{if(document.hidden){this.track.pause();this.voiceAudio?.pause();}else if(this.unlocked&&this.settings.music)this.track.play().catch(()=>{});});}
+ async loadVoices(){try{const r=await fetch('./assets/voice/manifest.json',{cache:'no-store'});if(r.ok)this.voiceMap=await r.json();}catch{}}
+ unlock(){this.unlocked=true;this.sync();}
+ sync(settings=this.settings){this.settings=settings;this.track.volume=Math.min(1,settings.volume*(this.voiceAudio && !this.voiceAudio.paused ? .3 : 1));if(settings.music&&this.unlocked&&!document.hidden)this.track.play().catch(()=>this.onStatus('Музыканы қосу үшін батырманы бас'));else {this.track.pause();this.onStatus('Музыка өшірулі');}if(!settings.voice)this.stopVoice();}
+ fx(name){if(!this.settings.sfx||!this.unlocked)return;const a=new Audio('./assets/audio/'+(sounds[name]||sounds.tap)+'.wav');a.volume=Math.min(.55,this.settings.volume+.12);a.play().catch(()=>{});}
+ stopVoice(){if(this.voiceAudio){this.voiceAudio.pause();this.voiceAudio=null;}this.track.volume=this.settings.volume;}
+ async voice(id){this.stopVoice();if(!this.settings.voice||!this.unlocked)return false;if(!this.voiceMap[id])await this.loadVoices();const path=this.voiceMap[id];if(!path)return false;this.voiceAudio=new Audio(path);this.voiceAudio.volume=Math.min(1,this.settings.volume*2+.25);this.track.volume=this.settings.volume*.25;this.voiceAudio.onended=()=>{this.voiceAudio=null;this.track.volume=this.settings.volume;this.onStatus('Музыка ойнап тұр');};try{await this.voiceAudio.play();this.onStatus('Қазақша дауыс оқып тұр');return true;}catch{this.stopVoice();return false;}}
+}
+
