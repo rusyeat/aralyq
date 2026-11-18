@@ -59,3 +59,12 @@ API кілті репозиторийде және жарияланған ойы
 - Utah State University: https://extension.usu.edu/relationships/research/effective-communication-skills-i-message-and-beyond
 
 Сценарий, мәтіндер, кейіпкерлер арасындағы диалог, XP және көрсеткіш моделі — осы ойынға арналған оқу бейімдеуі. Көрсеткіштер психологиялық диагностика немесе студенттің тұлғасына баға емес.
+
+## Қосымша оқу дереккөздері
+
+- APA Dictionary — эмоция анықтамасы: https://dictionary.apa.org/emotion
+- APA — стресс пен дене реакциялары: https://www.apa.org/topics/stress/body
+- Thomas–Kilmann — конфликтіні реттеудің бес тәсілі: https://kilmanndiagnostics.com/a-brief-overview-tki/
+- NACE — кәсіби коммуникация құзыреті: https://www.naceweb.org/career-readiness/competencies/career-readiness-defined/
+
+Ұғымдар қазақша қысқа оқу бейімдеуімен берілген. Жағдаяттар мен тоғыз білім сұрағы осы ойынға арнап жазылған.
