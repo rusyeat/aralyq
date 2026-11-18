@@ -1,4 +1,4 @@
-import{lessons,taskLearning,knowledgeLabels}from'./curriculum.mjs';
+import{lessons,taskLearning,knowledgeLabels}from'./curriculum.mjs?v=3.1';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 const sourceLinks=l=>`<div class="lesson-sources"><span>Ұғымдардың негізі</span>${l.sources.map(([name,url])=>`<a href="${url}" target="_blank" rel="noopener noreferrer">${name}</a>`).join('')}</div>`;
 export function lessonContent(topic,{preview=false}={}){const l=lessons[topic];return `<div class="curriculum-content"><div class="learning-label">ОҚУ ЖОСПАРЫ · ${l.code}</div>${preview?'':`<h1 tabindex="-1">${l.title}</h1>`}<p class="lesson-question">${l.question}</p><div class="learning-outcomes"><h2>Осы бөлімнің оқу мақсаттары</h2><ul>${l.outcomes.map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="concept-grid">${l.concepts.map(c=>`<article><h2>${c.term}</h2><p>${c.definition}</p><div class="concept-example"><span>Мысал</span><p>${c.example}</p></div></article>`).join('')}</div><div class="lesson-connection"><h2>Жағдаятта қолдану</h2><p>${l.connection}</p></div>${sourceLinks(l)}</div>`;}

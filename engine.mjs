@@ -1,6 +1,6 @@
-import {lessons,gradeKnowledge} from './curriculum.mjs';
+import {lessons,gradeKnowledge} from './curriculum.mjs?v=3.1';
 export {lessons};
-import {tasks,episodes,topics} from './story.mjs';
+import {tasks,episodes,topics} from './story.mjs?v=3.1';
 export {tasks,episodes,topics};
 export const VERSION=3, GOAL=2000;
 export function freshState(){return{version:VERSION,profile:{name:'',avatar:0},cursor:0,phase:'lobby',answers:[],lessonSeen:[false,false,false],exams:[null,null,null],reflection:'',settings:{music:true,sfx:true,voice:true,drama:true,volume:.28}};}

@@ -1,8 +1,8 @@
-import {lessons} from './curriculum.mjs';
-import {lessonContent,lessonScreen,lessonTabs,taskCourseBadge,feedbackCourse,examScreen,examFeedback,learningReport,learningGuide} from './learning-ui.mjs';
-import {tasks,episodes,topics,characters} from './story.mjs';
-import {freshState,start,playerName,answerKnowledge,initialPayload,ready,answer,next,retry,score,stats,restore,responseText,GOAL} from './engine.mjs';
-import {AudioDirector} from './audio.mjs';
+import {lessons} from './curriculum.mjs?v=3.1';
+import {lessonContent,lessonScreen,lessonTabs,taskCourseBadge,feedbackCourse,examScreen,examFeedback,learningReport,learningGuide} from './learning-ui.mjs?v=3.1';
+import {tasks,episodes,topics,characters} from './story.mjs?v=3.1';
+import {freshState,start,playerName,answerKnowledge,initialPayload,ready,answer,next,retry,score,stats,restore,responseText,GOAL} from './engine.mjs?v=3.1';
+import {AudioDirector} from './audio.mjs?v=3.1';
 
 const app=document.querySelector('#app'),dialog=document.querySelector('#dialog');
 const KEY='aralyq.study.v3';
